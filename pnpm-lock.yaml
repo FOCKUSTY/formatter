@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      date-fns:
+        specifier: ^4.1.0
+        version: 4.1.0
     devDependencies:
       prettier:
         specifier: ^3.3.3
@@ -164,6 +168,9 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  date-fns@4.1.0:
+    resolution: {integrity: sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg==}
+
   esbuild@0.23.1:
     resolution: {integrity: sha512-VVNz/9Sa0bs5SELtn3f7qhJCDPCF5oMEl5cO9/SSinpE9hbPVvxbd572HH5AKiP7WD8INO53GgfDDhRjkylHEg==}
     engines: {node: '>=18'}
@@ -268,6 +275,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.23.1':
     optional: true
+
+  date-fns@4.1.0: {}
 
   esbuild@0.23.1:
     optionalDependencies:
