@@ -1,10 +1,11 @@
 {
     "name": "formatter",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "The simple formatter of different data",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "build": "tsc",
+        "build:types": "tsc --declaration"
     },
     "keywords": [
         "formatter",
@@ -25,8 +26,8 @@
     },
     "license": "MIT",
     "devDependencies": {
+        "@types/node": "^22.7.4",
         "prettier": "^3.3.3",
-        "tsx": "^4.19.1",
         "typescript": "^5.6.2"
     },
     "dependencies": {
