@@ -1,6 +1,6 @@
 {
     "name": "f-formatter",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "The simple fockusty formatter of different data",
     "main": "index.js",
     "scripts": {
@@ -8,21 +8,21 @@
         "build:types": "tsc --declaration"
     },
     "files": [
-        "dist/src/colors.js",
-        "dist/src/colors.d.ts",
+        "src/colors.js",
+        "src/colors.d.ts",
 
-        "dist/src/date/date.js",
-        "dist/src/date/date.d.ts",
-        "dist/src/date/month.js",
-        "dist/src/date/month.d.ts",
-        "dist/src/date/time.js",
-        "dist/src/date/time.d.ts",
+        "src/date/date.js",
+        "src/date/date.d.ts",
+        "src/date/month.js",
+        "src/date/month.d.ts",
+        "src/date/time.js",
+        "src/date/time.d.ts",
 
-        "dist/src/types/date.types.d.ts",
-        "dist/src/types/date.types.d.ts",
+        "src/types/date.types.d.ts",
+        "src/types/date.types.d.ts",
 
-        "dist/src/index.js",
-        "dist/src/index.d.ts"
+        "src/index.js",
+        "src/index.d.ts"
     ],
     "keywords": [
         "formatter",

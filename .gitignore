@@ -13,6 +13,9 @@ hasing.ts
 *.log
 log/
 
+*.js
+*.d.ts
+
 # Logs
 logs
 notUsing.log
