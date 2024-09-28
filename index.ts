@@ -5,9 +5,11 @@ import DateFormatter from "./date/date";
 
 import type { Time as TimeType } from './types/date.types';
 
-class Formatter extends DateFormatter {
+class Formatter {
+    private readonly _date: DateFormatter;
+
     constructor(date?: Date, time?: TimeType) {
-        super(date, time);
+        this._date = new DateFormatter(date, time);
     };
     
     public RuWords = (num: number, stage: [string, string, string]|[string, string]) => {
@@ -66,6 +68,10 @@ class Formatter extends DateFormatter {
         JSON.stringify(json, (_, value) => { eval(`file = ${value}`) } );
 
         return file;
+    };
+
+    public get date(): DateFormatter {
+        return this._date;
     };
 };
 
