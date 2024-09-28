@@ -1,10 +1,10 @@
 {
     "name": "f-formatter",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "description": "The simple fockusty formatter of different data",
     "main": "index.js",
     "scripts": {
-        "build": "tsc --module commonjs",
+        "build": "tsc",
         "build:types": "tsc --declaration",
         "build:all": "pnpm run build && pnpm run build:types",
         "build:file": "pnpm run build:all && nodemon build.ts"
@@ -42,10 +42,10 @@
     },
     "license": "MIT",
     "devDependencies": {
-        "@types/node": "^22.7.4",
+        "@types/node": "^20.16.1",
+        "ts-node": "^10.9.2",
         "nodemon": "^3.1.7",
         "prettier": "^3.3.3",
-        "ts-node": "^10.9.2",
         "typescript": "^5.6.2"
     },
     "dependencies": {

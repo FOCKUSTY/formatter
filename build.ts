@@ -83,7 +83,7 @@ class Build {
             this.WriteFile(value);
         };
 
-        console.log('Все файлы сгенерировались, выхожу')
+        console.log('Все файлы сгенерировались, выхожу');
 
         return exit();
     };
