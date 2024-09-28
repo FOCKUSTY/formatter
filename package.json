@@ -7,6 +7,23 @@
         "build": "tsc",
         "build:types": "tsc --declaration"
     },
+    "files": [
+        "dist/src/colors.js",
+        "dist/src/colors.d.ts",
+
+        "dist/src/date/date.js",
+        "dist/src/date/date.d.ts",
+        "dist/src/date/month.js",
+        "dist/src/date/month.d.ts",
+        "dist/src/date/time.js",
+        "dist/src/date/time.d.ts",
+
+        "dist/src/types/date.types.d.ts",
+        "dist/src/types/date.types.d.ts",
+
+        "dist/src/index.js",
+        "dist/src/index.d.ts"
+    ],
     "keywords": [
         "formatter",
         "simple",
