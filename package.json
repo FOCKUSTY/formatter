@@ -1,7 +1,7 @@
 {
-    "name": "formatter",
+    "name": "f-formatter",
     "version": "0.1.0",
-    "description": "The simple formatter of different data",
+    "description": "The simple fockusty formatter of different data",
     "main": "index.js",
     "scripts": {
         "build": "tsc",
