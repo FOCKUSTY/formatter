@@ -8,21 +8,21 @@
         "build:types": "tsc --declaration"
     },
     "files": [
-        "src/colors.js",
-        "src/colors.d.ts",
+        "colors.js",
+        "colors.d.ts",
 
-        "src/date/date.js",
-        "src/date/date.d.ts",
-        "src/date/month.js",
-        "src/date/month.d.ts",
-        "src/date/time.js",
-        "src/date/time.d.ts",
+        "date/date.js",
+        "date/date.d.ts",
+        "date/month.js",
+        "date/month.d.ts",
+        "date/time.js",
+        "date/time.d.ts",
 
-        "src/types/date.types.d.ts",
-        "src/types/date.types.d.ts",
+        "types/date.types.d.ts",
+        "types/date.types.d.ts",
 
-        "src/index.js",
-        "src/index.d.ts"
+        "index.js",
+        "index.d.ts"
     ],
     "keywords": [
         "formatter",
