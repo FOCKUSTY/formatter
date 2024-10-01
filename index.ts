@@ -52,7 +52,7 @@ class Formatter {
         return output.join(joiner);
     };
 
-    public Comma = (number: string) => {
+    public Comma = (number: string|number) => {
        return  `${number}`.replace('.', ',');
     };
 

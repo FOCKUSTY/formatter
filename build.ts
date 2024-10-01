@@ -57,6 +57,21 @@ class Build {
             : defaultFiles;
     };
 
+    private readonly GeneratePaths = (filePath: string) => {
+        const folders = filePath.split('/');
+
+        let pastPath = '';
+
+        for(const folder of folders) {
+            try {
+                pastPath += path.join(folder + '/');
+                fs.opendirSync(pastPath);
+            } catch {
+                fs.mkdirSync(pastPath);
+            };
+        };
+    };
+
     private readonly ReadFile = (filePath: string) => {
         const file = fs.readFileSync(path.join(filePath), 'utf-8');
 
@@ -78,6 +93,8 @@ class Build {
         for(const key in this._files_paths) {
             const value: MiniPathType = this._files_paths[key];
 
+            this.GeneratePaths(value.build.path);
+            
             console.log(`Генерирую ${value.source.name} в ${value.build.name}`);
             
             this.WriteFile(value);
