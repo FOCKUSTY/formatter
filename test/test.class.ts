@@ -15,7 +15,7 @@ class Test {
                 const answer = test[0];;
                 const programmAnswer = test[1];
     
-                it(`Должен вовзращать ${answer}`, () => {
+                it(`Должен вовзращать "${answer}"`, () => {
                     assert.equal(answer, programmAnswer, `Вернул ${programmAnswer}`);
                 });
             };

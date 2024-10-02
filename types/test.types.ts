@@ -1,1 +1,1 @@
-export type TestsType = [string, string][];
+export type TestsType = [any, any][];
