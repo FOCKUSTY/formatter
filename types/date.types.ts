@@ -1,3 +1,9 @@
+export type Date = [
+    number,
+    number,
+    number
+];
+
 export type Time = {
     seconds?: number,
     minutes?: number,
@@ -5,8 +11,4 @@ export type Time = {
     day: number,
     month: number,
     year: number
-} | [
-    number,
-    number,
-    number
-];
+} | Date;
