@@ -60,6 +60,10 @@ class Time {
 
         return output;
     };
+
+    get time() {
+        return this._time;
+    };
 };
 
 export default Time;
