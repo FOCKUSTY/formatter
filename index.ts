@@ -18,21 +18,17 @@ class Formatter {
             firstChar: number = Number(txt[txt.length-1]),
             secondChar: number = Number(txt[txt.length-2]);
 
-        let text = '';
-        
         if (num === 1 || (firstChar === 1 && secondChar != 1))
-            text += stage[0];
+            return stage[0];
 
         else if ((firstChar === 1 && secondChar === 1) || firstChar === 0 || secondChar === 1)
-            text += stage[2] || stage[1];
+            return stage[2] || stage[1];
         
         else if (firstChar<5)
-            text += stage[1];
+            return stage[1];
 
         else
-            text += stage[2] || stage[1];
-    
-        return text;
+            return stage[2] || stage[1];
     };
 
     public Color = (text: string, color: Colors) =>
