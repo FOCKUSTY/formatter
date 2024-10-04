@@ -24,7 +24,7 @@ class Formatter {
         else if ((firstChar === 1 && secondChar === 1) || firstChar === 0 || secondChar === 1)
             return stage[2] || stage[1];
         
-        else if (firstChar<5)
+        else if (firstChar < 5)
             return stage[1];
 
         else
