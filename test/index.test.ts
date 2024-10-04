@@ -8,8 +8,13 @@ const formatter = new Formatter();
 describe('Formatter', () => {
     (() => {
         const RuWords: [string, string, string] = ['Стена', 'Стены', 'Стен'];
+        const RuWords2: [string, string] = ['Пользователь', 'Пользователя'];
         
         const tests: TestsType = [
+            [RuWords2[0], formatter.RuWords(-1, RuWords2)],
+            [RuWords2[1], formatter.RuWords(-24, RuWords2)],
+            [RuWords2[1], formatter.RuWords(25.5, RuWords2)],
+
             [RuWords[0], formatter.RuWords(1, RuWords)],
             [RuWords[1], formatter.RuWords(2, RuWords)],
             [RuWords[2], formatter.RuWords(5, RuWords)]
