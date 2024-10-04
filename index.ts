@@ -1,7 +1,8 @@
+import path from 'node:path';
 import fs from 'node:fs';
 
-import { Colors } from './colors';
 import DateFormatter from "./date/date";
+import { Colors } from './colors';
 
 import type { Time as TimeType } from './types/date.types';
 
@@ -58,9 +59,9 @@ class Formatter {
         return file;
     };
 
-    public FromJSONWithPath = (path: string): any => {
+    public FromJSONWithPath = (filePath: string): any => {
         let file: any;
-        const json = fs.readFileSync(path, { encoding: "utf-8" });
+        const json = fs.readFileSync(path.join(filePath), { encoding: "utf-8" });
         JSON.stringify(json, (_, value) => { eval(`file = ${value}`) } );
 
         return file;
