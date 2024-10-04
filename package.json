@@ -6,8 +6,8 @@
     "scripts": {
         "build": "tsc",
         "build:types": "tsc --declaration",
-        "build:all": "pnpm run build && pnpm run build:types",
-        "build:file": "pnpm run build:all && nodemon build.ts",
+        "build:all": "npm run build && npm run build:types",
+        "build:file": "npm run build:all && nodemon build.ts",
         "watch:build": "nodemon build.ts",
         "test": "ts-mocha --paths ./test/**/*.test.ts"
     },

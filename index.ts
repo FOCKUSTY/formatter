@@ -53,7 +53,7 @@ class Formatter {
     };
 
     public Comma = (number: string|number) => {
-       return  `${number}`.replace('.', ',');
+       return `${number}`.replace('.', ',');
     };
 
     public FromJSON = (json: string): any => {
