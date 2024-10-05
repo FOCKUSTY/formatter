@@ -65,7 +65,7 @@ console.log(formatter.Color('Привет!', Colors.magenta)); // \u001b[35mПр
 
 /* Colored требует текстового значение, цвет и разделитель слов */
 console.log(formatter.Colored('Я говорю', [Colors.magenta, Colors.reset], ' '));
-// \u001b[35mЯ!\u001B !\u001Bговорю!\u001B, выведет цветное Я говорю
+// \u001b[35mЯ\u001B \u001Bговорю\u001B, выведет цветное Я говорю
 ```
 
 ### DateFormatter
