@@ -34,7 +34,7 @@ pnpm install --global --save f-formatter --latest
 
 <hr>
 
-## Examples
+## Примеры
 
 ### Formatter
 ```ts
