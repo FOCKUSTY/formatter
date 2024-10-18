@@ -1,16 +1,14 @@
-import { format } from 'date-fns';
+import { format, milliseconds } from 'date-fns';
 
-import type { Time as TimeType } from '../types/date.types';
-import type { Date as DateType } from '../types/date.types';
+import type { Date as DateType, Time as TimeType } from '../types/date.types';
 
 import Time from './time';
 
 class DateFormatter extends Time {
-    constructor(date?: Date, time?: TimeType) {
+    constructor(date?: Date, time?: TimeType|DateType) {
         super(date, time);
     };
     
-    // Кодовое название: "Тут нет Дмитрия"
     public readonly Date = (date: string | number | Date, form='dd.MM.yyyy HH:mm:ss'): string => {
         if(!date)
             return 'Error';
@@ -21,36 +19,36 @@ class DateFormatter extends Time {
         return dateForm;
     };
 
-    // Кодовое название: "Взять Дмитрия"
     public readonly toLocaleDMY = (date: TimeType) => {
-        const getDMY = (_date: DateType): DateType => {
-            const day = _date[0];
-            const month = new Time().getMonthDaysFromJanuary(_date[1]);
-            const year = _date[2] - 1970;
+        const getDMY = (_date: TimeType): TimeType => {
+            const day = _date.day;
+            const month = new Time().getMonthDaysFromJanuary(_date.month);
+            const year = _date.year - 1970;
             
-            // Дмитрия разделили на части...
-            return [ day, month, year ];
+            return { day, month, year };
         };
 
-        const DMY = Array.isArray(date)
-            ? getDMY(date)
-            : getDMY([date.day, date.month, date.year]);
-            
+        const DMY = getDMY({day: date.day, month: date.month, year: date.year});
+    
         return DMY;
     };
 
-    // Кодовое название: "Перевести Дмитрия"
     public readonly Timestamp = (date: TimeType) => {
         const toSeconds = 3600;
 
-        const getOutput = (DMY: DateType) => {
-            // Кодовое название: "Дмитрий"
-            const [D, M, Y] = DMY;
+        const getOutput = (DMY: TimeType) => {
+            const { day, month, year } = DMY;
 
-            return Y*365 * 24 * toSeconds
-                + Y * 6 * toSeconds
-                + M * 24 * toSeconds
-                + D * 24 * toSeconds;
+            const summ = (DMY.hour || 0) * toSeconds
+                + (DMY.minutes || 0) * toSeconds
+                + (DMY.seconds || 0)
+                + (DMY.milliseconds || 0);
+
+            return year * 365 * 24 * toSeconds
+                + year * 6 * toSeconds
+                + month * 24 * toSeconds
+                + day * 24 * toSeconds
+                + summ;
         };
 
         const DMY = this.toLocaleDMY(date);
