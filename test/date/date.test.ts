@@ -3,20 +3,19 @@ import DateFormatter from "date/date";
 import type { TestsType } from "types/test.types";
 import type { Time as TimeType } from 'types/date.types';
 
+import Test from "test/test.class";
+
 const formatter = new DateFormatter();
 
 describe('DateFormatter', () => {
     const numbers: TimeType = formatter.time;
-    
-    console.log(formatter.Timestamp(numbers));
-    console.log(formatter.date.getTime());
 
     (() => {
         const tests: TestsType = [
-            [Math.floor(formatter.Timestamp(numbers)/100_000), Math.floor(formatter.date.getTime()/100_000_000)]
+            [Math.floor(formatter.Timestamp(numbers)/1000), Math.floor(formatter.date.getTime()/1000)]
         ];
 
-        // new Test('Timestamp(...)', tests).execute();
+        new Test('Timestamp(...)', tests).execute();
     })();
 
     (() => {
@@ -29,6 +28,6 @@ describe('DateFormatter', () => {
             tests.push([timeDMY[key], timeNum[key]]);
         };
 
-        // new Test('toLocaleDMY(...)', tests).execute();
+        new Test('toLocaleDMY(...)', tests).execute();
     })();
 });

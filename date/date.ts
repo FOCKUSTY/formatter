@@ -20,35 +20,36 @@ class DateFormatter extends Time {
     };
 
     public readonly toLocaleDMY = (date: TimeType) => {
-        const getDMY = (_date: TimeType): TimeType => {
-            const day = _date.day;
-            const month = new Time().getMonthDaysFromJanuary(_date.month);
-            const year = _date.year - 1970;
-            
-            return { day, month, year };
-        };
+        const output: TimeType = { ...date };
 
-        const DMY = getDMY({day: date.day, month: date.month, year: date.year});
-    
-        return DMY;
+        output.month = new Time().getMonthDaysFromJanuary(date.month);
+        output.year = date.year - 1970;
+        
+        return output;
     };
 
     public readonly Timestamp = (date: TimeType) => {
-        const toSeconds = 3600;
+        const leapYear = 6;
+        const toDays = 365;
+        const toHours = 24;
+        const toMinutes = 60;
+        const toSeconds = 60;
+        const toMiliseconds = 1000;
+        const mili = toMinutes * toSeconds * toMiliseconds;
+        const miliFromH = toHours * mili
+        const UTCHours = 17;
 
         const getOutput = (DMY: TimeType) => {
-            const { day, month, year } = DMY;
-
-            const summ = (DMY.hour || 0) * toSeconds
-                + (DMY.minutes || 0) * toSeconds
-                + (DMY.seconds || 0)
+            const summ = (DMY.hour||0) * mili
+                + (DMY.minutes || 0) * mili/toMinutes
+                + (DMY.seconds || 0) * toMiliseconds
                 + (DMY.milliseconds || 0);
 
-            return year * 365 * 24 * toSeconds
-                + year * 6 * toSeconds
-                + month * 24 * toSeconds
-                + day * 24 * toSeconds
-                + summ;
+            return DMY.year * toDays * miliFromH
+                + DMY.year * leapYear * mili
+                + DMY.month * miliFromH
+                + DMY.day * miliFromH
+                + summ - (UTCHours * mili);
         };
 
         const DMY = this.toLocaleDMY(date);

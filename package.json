@@ -9,6 +9,7 @@
         "build:all": "npm run build && npm run build:types",
         "build:file": "npm run build:all && nodemon build.ts",
         "watch:build": "nodemon build.ts",
+        "watch:test": "nodemon test.ts",
         "test": "ts-mocha --paths ./test/**/*.test.ts"
     },
     "files": [
