@@ -1,111 +1,111 @@
-import { exit } from 'node:process';
-import path from 'node:path';
-import fs from 'node:fs';
+import { exit } from "node:process";
+import path from "node:path";
+import fs from "node:fs";
 
 type MiniPathType = {
-    source: {
-        name: string,
-        path: string
-    },
-    build: {
-        name: string,
-        path: string
-    }
+	source: {
+		name: string;
+		path: string;
+	};
+	build: {
+		name: string;
+		path: string;
+	};
 };
 
 type PathType = { [key: string]: MiniPathType };
 
 const defaultFiles: PathType = {
-    'package.json': {
-        build: {
-            name: 'package.json',
-            path: '../dist'
-        },
-        source: {
-            name: 'package.json',
-            path: './'
-        }
-    },
-    'LICENSE': {
-        build: {
-            name: 'LICENSE',
-            path: '../dist'
-        },
-        source: {
-            name: 'LICENSE',
-            path: './'
-        }
-    },
-    'README.md': {
-        build: {
-            name: 'README.md',
-            path: '../dist'
-        },
-        source: {
-            name: 'README.md',
-            path: './'
-        }
-    }
+	"package.json": {
+		build: {
+			name: "package.json",
+			path: "../dist"
+		},
+		source: {
+			name: "package.json",
+			path: "./"
+		}
+	},
+	"LICENSE": {
+		build: {
+			name: "LICENSE",
+			path: "../dist"
+		},
+		source: {
+			name: "LICENSE",
+			path: "./"
+		}
+	},
+	"README.md": {
+		build: {
+			name: "README.md",
+			path: "../dist"
+		},
+		source: {
+			name: "README.md",
+			path: "./"
+		}
+	}
 };
 
 class Build {
-    private readonly _files_paths: PathType;
+	private readonly _files_paths: PathType;
 
-    constructor(filesPaths?: PathType) {
-        this._files_paths = filesPaths
-            ? filesPaths
-            : defaultFiles;
-    };
+	constructor(filesPaths?: PathType) {
+		this._files_paths = filesPaths ? filesPaths : defaultFiles;
+	}
 
-    private readonly GeneratePaths = (filePath: string) => {
-        const folders = filePath.split('/');
+	private readonly GeneratePaths = (filePath: string) => {
+		const folders = filePath.split("/");
 
-        let pastPath = '';
+		let pastPath = "";
 
-        for(const folder of folders) {
-            try {
-                pastPath += path.join(folder + '/');
-                fs.opendirSync(pastPath);
-            } catch {
-                fs.mkdirSync(pastPath);
-            };
-        };
-    };
+		for (const folder of folders) {
+			try {
+				pastPath += path.join(folder + "/");
+				fs.opendirSync(pastPath);
+			} catch {
+				fs.mkdirSync(pastPath);
+			}
+		}
+	};
 
-    private readonly ReadFile = (filePath: string) => {
-        const file = fs.readFileSync(path.join(filePath), 'utf-8');
+	private readonly ReadFile = (filePath: string) => {
+		const file = fs.readFileSync(path.join(filePath), "utf-8");
 
-        return file;
-    };
+		return file;
+	};
 
-    private readonly WriteFile = (filePath: MiniPathType) => {
-        const build = path.join(filePath.build.path, filePath.build.name);
-        const source = this.ReadFile(filePath.source.path + '/' + filePath.source.name);
+	private readonly WriteFile = (filePath: MiniPathType) => {
+		const build = path.join(filePath.build.path, filePath.build.name);
+		const source = this.ReadFile(filePath.source.path + "/" + filePath.source.name);
 
-        fs.writeFileSync(build, source, 'utf-8');
-    
-        console.log(`Сгенерировал ${filePath.build.name}`);
-    };
+		fs.writeFileSync(build, source, "utf-8");
 
-    public readonly execute = () => {
-        console.log('Начало генерации');
+		console.log(`Сгенерировал ${filePath.build.name}`);
+	};
 
-        for(const key in this._files_paths) {
-            const value: MiniPathType = this._files_paths[key];
+	public readonly execute = () => {
+		console.log("Начало генерации");
 
-            this.GeneratePaths(value.build.path);
-            
-            console.log(`Генерирую ${value.source.name} в ${value.build.name}`);
-            
-            this.WriteFile(value);
-        };
+		for (const key in this._files_paths) {
+			const value: MiniPathType = this._files_paths[key];
 
-        console.log('Все файлы сгенерировались, выхожу');
+			this.GeneratePaths(value.build.path);
 
-        return exit();
-    };
-};
+			console.log(`Генерирую ${value.source.name} в ${value.build.name}`);
 
-(() => { new Build().execute() })();
+			this.WriteFile(value);
+		}
+
+		console.log("Все файлы сгенерировались, выхожу");
+
+		return exit();
+	};
+}
+
+(() => {
+	new Build().execute();
+})();
 
 export default Build;

@@ -1,62 +1,63 @@
 {
-    "name": "f-formatter",
-    "version": "0.2.7",
-    "description": "The simple fockusty formatter of different data",
-    "main": "index.js",
-    "scripts": {
-        "build": "tsc",
-        "build:types": "tsc --declaration",
-        "build:all": "npm run build && npm run build:types",
-        "build:file": "npm run build:all && nodemon build.ts",
-        "watch:build": "nodemon build.ts",
-        "watch:test": "nodemon test.ts",
-        "test": "ts-mocha --paths ./test/**/*.test.ts"
-    },
-    "files": [
-        "colors.js",
-        "colors.d.ts",
-        "date/date.js",
-        "date/date.d.ts",
-        "date/month.js",
-        "date/month.d.ts",
-        "date/time.js",
-        "date/time.d.ts",
-        "types/date.types.d.ts",
-        "types/date.types.d.ts",
-        "index.js",
-        "index.d.ts"
-    ],
-    "keywords": [
-        "formatter",
-        "simple",
-        "simple formatter"
-    ],
-    "author": "FOCKUSTY",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/FOCKUSTY/formatter"
-    },
-    "bugs": {
-        "email": "wwddwwwd@mail.ru",
-        "url": "https://github.com/FOCKUSTY/formatter/issues"
-    },
-    "engines": {
-        "node": ">=7.6.0"
-    },
-    "license": "MIT",
-    "devDependencies": {
-        "@types/expect": "^24.3.0",
-        "@types/mocha": "^10.0.8",
-        "@types/node": "^22.7.4",
-        "mocha": "^10.7.3",
-        "nodemon": "^3.1.7",
-        "prettier": "^3.3.3",
-        "ts-mocha": "^10.0.0",
-        "ts-node": "^10.9.2",
-        "tsconfig-paths": "^4.2.0",
-        "typescript": "^5.6.2"
-    },
-    "dependencies": {
-        "date-fns": "^4.1.0"
-    }
+	"name": "f-formatter",
+	"version": "0.2.7",
+	"description": "The simple fockusty formatter of different data",
+	"main": "index.js",
+	"scripts": {
+		"build": "tsc",
+		"build:types": "tsc --declaration",
+		"build:all": "npm run build && npm run build:types",
+		"build:file": "npm run build:all && nodemon build.ts",
+		"watch:build": "nodemon build.ts",
+		"watch:test": "nodemon test.ts",
+		"format": "prettier ./**.ts --write",
+		"test": "ts-mocha --paths ./test/**/*.test.ts"
+	},
+	"files": [
+		"colors.js",
+		"colors.d.ts",
+		"date/date.js",
+		"date/date.d.ts",
+		"date/month.js",
+		"date/month.d.ts",
+		"date/time.js",
+		"date/time.d.ts",
+		"types/date.types.d.ts",
+		"types/date.types.d.ts",
+		"index.js",
+		"index.d.ts"
+	],
+	"keywords": [
+		"formatter",
+		"simple",
+		"simple formatter"
+	],
+	"author": "FOCKUSTY",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/FOCKUSTY/formatter"
+	},
+	"bugs": {
+		"email": "wwddwwwd@mail.ru",
+		"url": "https://github.com/FOCKUSTY/formatter/issues"
+	},
+	"engines": {
+		"node": ">=7.6.0"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"@types/expect": "^24.3.0",
+		"@types/mocha": "^10.0.8",
+		"@types/node": "^22.7.4",
+		"mocha": "^10.7.3",
+		"nodemon": "^3.1.7",
+		"prettier": "^3.3.3",
+		"ts-mocha": "^10.0.0",
+		"ts-node": "^10.9.2",
+		"tsconfig-paths": "^4.2.0",
+		"typescript": "^5.6.2"
+	},
+	"dependencies": {
+		"date-fns": "^4.1.0"
+	}
 }

@@ -19,15 +19,16 @@ npm install f-formatter@latest
 ## Примеры
 
 ### Formatter
+
 ```ts
-import Formatter from 'f-formatter';
-import { Colors } from 'f-formatter/colors';
+import Formatter from "f-formatter";
+import { Colors } from "f-formatter/colors";
 
-import path from 'node:path';
-import fs from 'node:fs';
+import path from "node:path";
+import fs from "node:fs";
 
-const jsonPATH = './file.json'; /* YOUR-PATH */
-const json = fs.readFileSync(path.json(jsonPATH), 'utf-8');
+const jsonPATH = "./file.json"; /* YOUR-PATH */
+const json = fs.readFileSync(path.json(jsonPATH), "utf-8");
 const formatter = new Formatter();
 
 /* RuWords требует числового значения, а также стадии (1 объект, 2 объекта, 5 объектов) */
@@ -43,21 +44,22 @@ console.log(formatter.FromJSON(json)); // Вывыдет объект, масс�
 console.log(formatter.FromJSONWithPath(jsonPATH)); // Вывыдет объект, массив или null;
 
 /* Color требует текстового значение и цвет */
-console.log(formatter.Color('Привет!', Colors.magenta)); // \u001b[35mПривет!\u001B[0m, выведет цветное Привет!
+console.log(formatter.Color("Привет!", Colors.magenta)); // \u001b[35mПривет!\u001B[0m, выведет цветное Привет!
 
 /* Colored требует текстового значение, цвет и разделитель слов */
-console.log(formatter.Colored('Я говорю', [Colors.magenta, Colors.reset], ' '));
+console.log(formatter.Colored("Я говорю", [Colors.magenta, Colors.reset], " "));
 // \u001b[35mЯ\u001B \u001Bговорю\u001B, выведет цветное Я говорю
 ```
 
 ### DateFormatter
+
 ```ts
-import Formatter from 'f-formatter';
+import Formatter from "f-formatter";
 
 const formatter = new Formatter().date;
 
 /* Date требует дату, числовое значение или строку и формат, как вывести время */
-console.log(formatter.Date(new Date(), 'HH:mm:ss')); // Выведет действительные часы:минуты:секунды
+console.log(formatter.Date(new Date(), "HH:mm:ss")); // Выведет действительные часы:минуты:секунды
 
 /* Timestamp требует настоящее время (Год, месяц, год) соотвественно [number, number, number] или в виде объекта */
 console.log(formatter.Timestamp(formatter.time));
@@ -69,8 +71,9 @@ console.log(formatter.toLocaleDMY(formatter.time));
 ```
 
 ### Time
+
 ```ts
-import Formatter from 'f-formatter';
+import Formatter from "f-formatter";
 
 const time = new Formatter().date.time;
 
@@ -84,5 +87,6 @@ console.log(time.getMonthDaysFromJanuary(time.time.month)); // Выведет к
 <hr>
 
 # Если
-- Если возникли проблемы или сложности, создайте [обсуждение](https://github.com/fockusty/formatter/issues/new/choose) в репозитории
-- Если Вы заметили проблемы в коде, пишите мне в [Discord](https://discord.gg/5MJrRjzPec) или в [Telegram](https://t.me/FOCKUSTY)
+
+-   Если возникли проблемы или сложности, создайте [обсуждение](https://github.com/fockusty/formatter/issues/new/choose) в репозитории
+-   Если Вы заметили проблемы в коде, пишите мне в [Discord](https://discord.gg/5MJrRjzPec) или в [Telegram](https://t.me/FOCKUSTY)
