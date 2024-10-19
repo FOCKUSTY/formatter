@@ -8,28 +8,10 @@
 ![GitHub Repo stars](https://img.shields.io/github/stars/fockusty/formatter)
 ![GitHub issues](https://img.shields.io/github/issues/fockusty/formatter)
 
-### Установка (Windows, npm/pnpm)
-
-1. Локально
-```
-npm install --save f-formatter --latest
-```
-
-или
+### Установка
 
 ```
-pnpm install --save f-formatter --latest
-```
-
-2. Глобально
-```
-npm install --global --save f-formatter --latest
-```
-
-или
-
-```
-pnpm install --global --save f-formatter --latest
+npm install f-formatter@latest
 ```
 
 <hr>
