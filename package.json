@@ -1,15 +1,12 @@
 {
 	"name": "f-formatter",
-	"version": "0.2.7",
+	"version": "0.2.8",
 	"description": "The simple fockusty formatter of different data",
 	"main": "index.js",
 	"scripts": {
-		"build": "tsc",
-		"build:types": "tsc --declaration",
-		"build:all": "npm run build && npm run build:types",
-		"build:file": "npm run build:all && nodemon build.ts",
+		"build": "npm run build:file && nodemon build.ts",
+		"build:file": "tsc && tsc --declaration",
 		"watch:build": "nodemon build.ts",
-		"watch:test": "nodemon test.ts",
 		"format": "prettier ./**.ts --write",
 		"test": "ts-mocha --paths ./test/**/*.test.ts"
 	},
@@ -24,6 +21,8 @@
 		"date/time.d.ts",
 		"types/date.types.d.ts",
 		"types/date.types.d.ts",
+		"formatter.js",
+		"formatter.d.ts",
 		"index.js",
 		"index.d.ts"
 	],
