@@ -7,9 +7,9 @@
 ![GitHub Repo stars](https://img.shields.io/github/stars/fockusty/formatter)
 ![GitHub issues](https://img.shields.io/github/issues/fockusty/formatter)
 
-<p>
+<p align="center">
     <a href="https://github.com/FOCKUSTY/formatter">
-        <img alt="FOCKUSTY formatter" src="https://img.shields.io/badge/fockusty-formatter?style=flat-square">
+        <img alt="FOCKUSTY formatter" src="https://img.shields.io/badge/fockusty-formatter-purple?style=flat-square">
     </a>
     <a href="https://www.npmjs.com/package/f-formatter">
         <img alt="Formatter version" src="https://img.shields.io/npm/v/f-formatter.svg?style=flat-square">
