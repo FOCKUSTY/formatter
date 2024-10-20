@@ -2,11 +2,22 @@
 
 Простой форматировщик ваших выводов в консоль или для удобства использование в коде
 
-![Static Badge](https://img.shields.io/badge/fockusty-formatter-formatter)
-![GitHub top language](https://img.shields.io/github/languages/top/fockusty/formatter)
 ![GitHub](https://img.shields.io/github/license/fockusty/formatter)
+![GitHub top language](https://img.shields.io/github/languages/top/fockusty/formatter)
 ![GitHub Repo stars](https://img.shields.io/github/stars/fockusty/formatter)
 ![GitHub issues](https://img.shields.io/github/issues/fockusty/formatter)
+
+<p>
+    <a href="https://github.com/FOCKUSTY/formatter">
+        <img alt="FOCKUSTY formatter" src="https://github.com/FOCKUSTY/formatter?style=flat-square">
+    </a>
+    <a href="https://www.npmjs.com/package/f-formatter">
+        <img alt="Formatter version" src="https://img.shields.io/npm/v/f-formatter.svg?style=flat-square">
+    </a>
+    <a href="https://www.npmjs.com/package/f-formatter">
+        <img alt="Weekly Downloads" src="https://img.shields.io/npm/dw/f-formatter?style=flat-square">
+    </a>
+</p>
 
 ### Установка
 
