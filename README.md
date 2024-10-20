@@ -2,14 +2,24 @@
 
 Простой форматировщик ваших выводов в консоль или для удобства использование в коде
 
-![GitHub](https://img.shields.io/github/license/fockusty/formatter)
-![GitHub top language](https://img.shields.io/github/languages/top/fockusty/formatter)
-![GitHub Repo stars](https://img.shields.io/github/stars/fockusty/formatter)
-![GitHub issues](https://img.shields.io/github/issues/fockusty/formatter)
+<p align="center">
+    <a href="https://github.com/FOCKUSTY/formatter/blob/main/LICENSE">
+        <img alt="FOCKUSTY formatter" src="https://img.shields.io/github/license/fockusty/formatter?style=flat-square">
+    </a>
+    <a href="https://github.com/FOCKUSTY/formatter">
+        <img alt="FOCKUSTY formatter" src="https://img.shields.io/github/languages/top/fockusty/formatter?style=flat-square">
+    </a>
+    <a href="https://github.com/FOCKUSTY/formatter">
+        <img alt="FOCKUSTY formatter" src="https://img.shields.io/github/stars/fockusty/formatter?style=flat-square">
+    </a>
+</p>
 
 <p align="center">
     <a href="https://github.com/FOCKUSTY/formatter">
         <img alt="FOCKUSTY formatter" src="https://img.shields.io/badge/fockusty-formatter-purple?style=flat-square">
+    </a>
+    <a href="https://img.shields.io/github/issues/fockusty/formatter">
+        <img alt="Formatter version" src="https://img.shields.io/github/issues/fockusty/formatter?style=flat-square">
     </a>
     <a href="https://www.npmjs.com/package/f-formatter">
         <img alt="Formatter version" src="https://img.shields.io/npm/v/f-formatter.svg?style=flat-square">
