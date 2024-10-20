@@ -4,9 +4,10 @@
 	"description": "The simple fockusty formatter of different data",
 	"main": "index.js",
 	"scripts": {
-		"build": "npm run build:file && nodemon build.ts",
+		"build": "npm run build:file && npm run start:build",
 		"build:file": "tsc && tsc --declaration",
 		"watch:build": "nodemon build.ts",
+        "start:build": "node ../dist/build.js",
 		"format": "prettier ./**.ts --write",
 		"test": "ts-mocha --paths ./test/**/*.test.ts"
 	},
