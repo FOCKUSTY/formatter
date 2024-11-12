@@ -3,14 +3,14 @@ import { monthDays } from "./month";
 
 /**
  * @class Time
- * 
+ *
  * @param date - current date
  * @param time - current date with type: Time
- * 
+ *
  * @example
  * import { Time } from "f-formatter";
  * const time = new Time();
-*/
+ */
 
 class Time {
 	protected readonly _date: Date;
@@ -38,11 +38,11 @@ class Time {
 
 	/**
 	 * Note: February has 28 days
-	 * 
+	 *
 	 * @param month - current month
-	 * 
+	 *
 	 * @returns days count in current month (28 <= number <= 31)
-	 * 
+	 *
 	 * @example
 	 * new Formatter().date.getMonthDays(1);
 	 * // return 31
@@ -53,20 +53,18 @@ class Time {
 
 		if (!month && this._time.month > 12) return 0;
 
-		const days = month
-			? monthDays[month]
-			: monthDays[this._time.month];
+		const days = month ? monthDays[month] : monthDays[this._time.month];
 
 		return days;
 	};
 
 	/**
 	 * Note: February has 28 days
-	 * 
-	 * @param month - current month 
-	 * 
+	 *
+	 * @param month - current month
+	 *
 	 * @returns days count from 1 January (1 <= number <= 365)
-	 * 
+	 *
 	 * @example
 	 * new Formatter().date.getMonthDaysFromJanuary(6);
 	 * // return 151

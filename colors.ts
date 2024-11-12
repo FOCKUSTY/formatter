@@ -1,16 +1,16 @@
 /**
  * @enum Colors
- * 
+ *
  * @reset reseting style
  * @bold highlighted in bold
  * @italic italic style
  * @underline underline style
  * @reversed reverse colors
- * 
+ *
  * @simple changing text color
  * @bright more bright color simple colors
  * @bg changing background color
-*/
+ */
 
 export enum Colors {
 	reset = "\u001B[0m",
