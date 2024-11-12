@@ -42,8 +42,7 @@ npm install f-formatter@latest
 ### Formatter
 
 ```ts
-import Formatter from "f-formatter";
-import { Colors } from "f-formatter/colors";
+import Formatter, { Colors } from "f-formatter";
 
 import path from "node:path";
 import fs from "node:fs";

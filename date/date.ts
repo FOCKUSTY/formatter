@@ -1,17 +1,64 @@
-import { format, milliseconds } from "date-fns";
+import { format } from "date-fns";
 
-import type { Date as DateType, Time as TimeType } from "../types/date.types";
+import { Date as DateType, Time as TimeType } from "../types/date.types";
 
 import Time from "./time";
+
+type Format = "miliseconds"|"seconds";
+
+/**
+ * @class DateFormatter
+ * @constructor
+ * 
+ * @param date - current date
+ * @param time - current date with type: Time
+ * 
+ * @example
+ * import { DateFormatter } from "f-formatter";
+ * const formatter = new DateFormatter();
+*/
 
 class DateFormatter extends Time {
 	constructor(date?: Date, time?: TimeType | DateType) {
 		super(date, time);
 	}
 
+	private readonly ToDMY = (date: TimeType|Date): TimeType => {
+		if (date instanceof Date)
+			return {
+				day: date.getDay(),
+				month: date.getMonth(),
+				year: date.getFullYear()
+			};
+
+		return date;
+	};
+
+	/**
+	 * @requires date - string, number or Date
+	 * 
+	 * @param date - current date
+	 * @param form - returns format
+	 * 
+	 * @tutorial
+	 * dd.MM.yyyy HH:mm:ss;
+	 * dd - day;
+	 * MM - month;
+	 * yyyy - year;
+	 * HH - hours;
+	 * mm - minutes;
+	 * ss - seconds;
+	 * 
+	 * @returns formatted date (string)
+	 * 
+	 * @example
+	 * new Formatter().date.Date(1731351600000, "dd.MM.yyyy");
+	 * // return 12.11.2024
+	*/
+
 	public readonly Date = (
 		date: string | number | Date,
-		form = "dd.MM.yyyy HH:mm:ss"
+		form: string = "dd.MM.yyyy HH:mm:ss"
 	): string => {
 		if (!date) return "Error";
 
@@ -21,7 +68,21 @@ class DateFormatter extends Time {
 		return dateForm;
 	};
 
-	public readonly toLocaleDMY = (date: TimeType) => {
+	/**
+	 * @requires date with values: day, month and year or Date
+	 * 
+	 * @param date - current date
+	 * 
+	 * @returns object with keys: day, month, year with type number from 1 January 1970 year (Time)
+	 * 
+	 * @example
+	 * new Formatter().date.toLocaleDMY({day: 1, month: 1, year: 2024});
+	 * // return { day: 1, month: 0, year: 54 }
+	 */
+
+	public readonly toLocaleDMY = (date: TimeType|Date) => {
+		date = this.ToDMY(date);
+
 		const output: TimeType = { ...date };
 
 		output.month = new Time().getMonthDaysFromJanuary(date.month);
@@ -30,7 +91,22 @@ class DateFormatter extends Time {
 		return output;
 	};
 
-	public readonly Timestamp = (date: TimeType) => {
+	/** 
+	 * @requires object with values: day, month and year
+	 * 
+	 * @param date - current date
+	 * @param format - returns format, seconds or miliseconds
+	 * 
+	 * @returns time value from 1 January 1970 year in miliseconds or seconds (number)
+	 * 
+	 * @example
+	 * new Formatter().date.Timestamp({day: 1, month: 1, year: 2024}, "seconds");
+	 * // return 1704135600
+	*/
+
+	public readonly Timestamp = (date: TimeType|Date, format: Format="miliseconds"): number => {
+		date = this.ToDMY(date);
+
 		const leapYear = 6;
 		const toDays = 365;
 		const toHours = 24;
@@ -40,6 +116,9 @@ class DateFormatter extends Time {
 		const mili = toMinutes * toSeconds * toMiliseconds;
 		const miliFromH = toHours * mili;
 		const UTCHours = 17;
+
+		const factor = format === "miliseconds"
+			? 1 : 1000;
 
 		const getOutput = (DMY: TimeType) => {
 			const summ =
@@ -53,14 +132,13 @@ class DateFormatter extends Time {
 				DMY.year * leapYear * mili +
 				DMY.month * miliFromH +
 				DMY.day * miliFromH +
-				summ -
-				UTCHours * mili
+				summ - UTCHours * mili
 			);
 		};
 
 		const DMY = this.toLocaleDMY(date);
 
-		return getOutput(DMY);
+		return (getOutput(DMY) / factor);
 	};
 
 	get date(): Date {

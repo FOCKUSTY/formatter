@@ -6,12 +6,42 @@ import { Colors } from "./colors";
 
 import type { Time as TimeType } from "./types/date.types";
 
+/**
+ * @class Formatter
+ * @constructor
+ * @param date - current date
+ * @param time - current date with type: Time
+ * 
+ * @example
+ * import Formatter from "f-formatter";
+ * const formatter = new Formatter();
+*/
+
 class Formatter {
 	private readonly _date: DateFormatter;
 
-	constructor(date?: Date, time?: TimeType) {
+	/**
+	 * @param date - current date 
+	 * @param time - current date with type: Time
+	*/
+
+	public constructor(date?: Date, time?: TimeType) {
 		this._date = new DateFormatter(date, time);
 	}
+
+	/**
+	 * @requires num
+	 * @requires stage
+	 * 
+	 * @param num - current number
+	 * @param stage - current words in russian ["one", "few", "many"]
+	 *  
+	 * @returns selected word of your words (string)
+	 * 
+	 * @example
+	 * new Formatter().RuWords(5, ["Пельмень", "Пельменя", "Пельменей"]);
+	 * // return "Пельменей"
+	*/
 
 	public RuWords = (
 		num: number,
@@ -32,10 +62,41 @@ class Formatter {
 		else return stage[2] || stage[1];
 	};
 
-	public Color = (text: string, color: Colors) => color + text + Colors.reset;
+	/**
+	 * @requires text
+	 * @requires color
+	 * 
+	 * @param text - your text (string)
+	 * @param color - your color, what you need (Colors)
+	 * 
+	 * @returns a colored text (string)
+	 * 
+	 * @example 
+	 * new Formatter().Color("Привет!", Colors.magenta);
+	 * // return \u001b[35mПривет!\u001B[0m
+	*/
 
-	public Colored = (text: string, colors: Colors[], joiner: string = " ") => {
-		const words = text.split(" ");
+	public Color = (text: string, color: Colors) =>
+		color + text + Colors.reset;
+
+	/**
+	 * @requires text
+	 * @requires colors
+	 * 
+	 * @param text - your text (string)
+	 * @param colors - your colors, what you need (Colors[])
+	 * @param joiner - join string (string)
+	 * @param splitter - split string (string)
+	 * 
+	 * @returns colored text (string) 
+	 * 
+	 * @example
+	 * new Formatter().Colored("Я говорю", [Colors.magenta, Colors.reset], " ");
+	 * // return \u001b[35mЯ\u001B \u001Bговорю\u001B
+	*/
+
+	public Colored = (text: string, colors: Colors[], joiner: string = " ", splitter: string = " ") => {
+		const words = text.split(splitter);
 
 		let output: string[] = [];
 
@@ -48,9 +109,31 @@ class Formatter {
 		return output.join(joiner);
 	};
 
+	/**
+	 * @requires number
+
+	 * @param number - current fractional number
+	 * 
+	 * @returns string with a semicolon (string)
+	 * 
+	 * @example
+	 * input: 1 => output: "1"
+	 * input: 0.3 => output: "0,3"
+	 * input: "32" => output: "32"
+	 * input: "32.1" => output: "32,1"
+	*/
+
 	public Comma = (number: string | number) => {
 		return `${number}`.replace(".", ",");
 	};
+
+	/**
+	 * @requires json
+	 *  
+	 * @param json - your readed json file 
+	 * 
+	 * @returns json file (object | array | null | undefined)
+	*/
 
 	public FromJSON = (json: string): any => {
 		let file;
@@ -59,6 +142,14 @@ class Formatter {
 		});
 		return file;
 	};
+
+	/**
+	 * @requires filePath
+	 * 
+	 * @param filePath - your path to json file 
+	 * 
+	 * @returns json file (object | array | null | undefined)
+	*/
 
 	public FromJSONWithPath = (filePath: string): any => {
 		let file: any;
