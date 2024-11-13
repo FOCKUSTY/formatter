@@ -1,6 +1,6 @@
 {
 	"name": "f-formatter",
-	"version": "0.3.0",
+	"version": "0.3.0-a",
 	"description": "The simple fockusty formatter of different data",
 	"main": "index.js",
 	"scripts": {
