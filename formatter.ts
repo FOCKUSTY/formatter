@@ -12,9 +12,10 @@ import type { Time as TimeType } from "./types/date.types";
  * @param date - current date
  * @param time - current date with type: Time
  *
- * @example
+ * ```ts
  * import Formatter from "f-formatter";
  * const formatter = new Formatter();
+ * ```
  */
 
 class Formatter {
@@ -38,9 +39,10 @@ class Formatter {
 	 *
 	 * @returns selected word of your words (string)
 	 *
-	 * @example
-	 * new Formatter().RuWords(5, ["Пельмень", "Пельменя", "Пельменей"]);
-	 * // return "Пельменей"
+     * ```ts
+     * new Formatter().RuWords(5, ["Пельмень", "Пельменя", "Пельменей"]);
+     * // return "Пельменей"
+     * ```
 	 */
 
 	public RuWords = (
@@ -71,9 +73,10 @@ class Formatter {
 	 *
 	 * @returns a colored text (string)
 	 *
-	 * @example
-	 * new Formatter().Color("Привет!", Colors.magenta);
-	 * // return \u001b[35mПривет!\u001B[0m
+     * ```ts
+     * new Formatter().Color("Привет!", Colors.magenta);
+     * // return \u001b[35mПривет!\u001B[0m
+     * ```
 	 */
 
 	public Color = (text: string, color: Colors) => color + text + Colors.reset;
@@ -89,9 +92,10 @@ class Formatter {
 	 *
 	 * @returns colored text (string)
 	 *
-	 * @example
-	 * new Formatter().Colored("Я говорю", [Colors.magenta, Colors.reset], " ");
-	 * // return \u001b[35mЯ\u001B \u001Bговорю\u001B
+     * ```ts
+     * new Formatter().Colored("Я говорю", [Colors.magenta, Colors.reset], " ");
+     * // return \u001b[35mЯ\u001B \u001Bговорю\u001B
+     * ```
 	 */
 
 	public Colored = (
@@ -164,6 +168,15 @@ class Formatter {
 
 		return file;
 	};
+
+    /**
+     * @returns Date
+     * 
+     * ```ts
+     * new DateFormatter().date;
+     * // return Date.now()
+     * ```
+     */
 
 	public get date(): DateFormatter {
 		return this._date;

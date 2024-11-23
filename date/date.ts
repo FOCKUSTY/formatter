@@ -13,9 +13,10 @@ type Format = "miliseconds" | "seconds";
  * @param date - current date
  * @param time - current date with type: Time
  *
- * @example
+ * ```ts
  * import { DateFormatter } from "f-formatter";
  * const formatter = new DateFormatter();
+ * ```
  */
 
 class DateFormatter extends Time {
@@ -51,9 +52,10 @@ class DateFormatter extends Time {
 	 *
 	 * @returns formatted date (string)
 	 *
-	 * @example
-	 * new Formatter().date.Date(1731351600000, "dd.MM.yyyy");
-	 * // return 12.11.2024
+     * ```ts
+     * new Formatter().date.Date(1731351600000, "dd.MM.yyyy");
+     * // return 12.11.2024
+     * ```
 	 */
 
 	public readonly Date = (
@@ -75,9 +77,10 @@ class DateFormatter extends Time {
 	 *
 	 * @returns object with keys: day, month, year with type number from 1 January 1970 year (Time)
 	 *
-	 * @example
-	 * new Formatter().date.toLocaleDMY({day: 1, month: 1, year: 2024});
-	 * // return { day: 1, month: 0, year: 54 }
+     * ```ts
+     * new Formatter().date.toLocaleDMY({day: 1, month: 1, year: 2024});
+     * // return { day: 1, month: 0, year: 54 }
+     * ```
 	 */
 
 	public readonly toLocaleDMY = (date: TimeType | Date) => {
@@ -99,9 +102,10 @@ class DateFormatter extends Time {
 	 *
 	 * @returns time value from 1 January 1970 year in miliseconds or seconds (number)
 	 *
-	 * @example
-	 * new Formatter().date.Timestamp({day: 1, month: 1, year: 2024}, "seconds");
-	 * // return 1704135600
+     * ```ts
+     * new Formatter().date.Timestamp({day: 1, month: 1, year: 2024}, "seconds");
+     * // return 1704135600
+     * ```
 	 */
 
 	public readonly Timestamp = (
@@ -143,6 +147,15 @@ class DateFormatter extends Time {
 
 		return getOutput(DMY) / factor;
 	};
+
+    /**
+     * @returns Date
+     * 
+     * ```ts
+     * new DateFormatter().date;
+     * // return Date.now()
+     * ```
+     */
 
 	get date(): Date {
 		return this._date;

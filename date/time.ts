@@ -7,9 +7,10 @@ import { monthDays } from "./month";
  * @param date - current date
  * @param time - current date with type: Time
  *
- * @example
+ * ```ts
  * import { Time } from "f-formatter";
  * const time = new Time();
+ * ```
  */
 
 class Time {
@@ -43,9 +44,10 @@ class Time {
 	 *
 	 * @returns days count in current month (28 <= number <= 31)
 	 *
-	 * @example
+     * ```ts
 	 * new Formatter().date.getMonthDays(1);
 	 * // return 31
+     * ```
 	 */
 
 	public readonly getMonthDays = (month?: number): number => {
@@ -65,9 +67,10 @@ class Time {
 	 *
 	 * @returns days count from 1 January (1 <= number <= 365)
 	 *
-	 * @example
+     * ```ts
 	 * new Formatter().date.getMonthDaysFromJanuary(6);
 	 * // return 151
+     * ```
 	 */
 
 	public readonly getMonthDaysFromJanuary = (month?: number): number => {
@@ -85,6 +88,15 @@ class Time {
 
 		return output;
 	};
+
+    /**
+     * @returns TimeType
+     * 
+     * ```ts
+     * new Formatter().time
+     * // return now: day: number; month: number; year: number;
+     * ```
+     */
 
 	get time() {
 		return this._time;
