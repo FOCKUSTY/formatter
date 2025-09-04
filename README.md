@@ -108,5 +108,5 @@ console.log(time.getMonthDaysFromJanuary(time.time.month)); // Выведет к
 
 # Если
 
--   Если возникли проблемы или сложности, создайте [обсуждение](https://github.com/fockusty/formatter/issues/new/choose) в репозитории
--   Если Вы заметили проблемы в коде, пишите мне в [Discord](https://discord.gg/5MJrRjzPec) или в [Telegram](https://t.me/FOCKUSTY)
+- Если возникли проблемы или сложности, создайте [обсуждение](https://github.com/fockusty/formatter/issues/new/choose) в репозитории
+- Если Вы заметили проблемы в коде, пишите мне в [Discord](https://discord.gg/5MJrRjzPec) или в [Telegram](https://t.me/FOCKUSTY)
