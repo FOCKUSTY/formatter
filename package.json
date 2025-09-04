@@ -1,31 +1,21 @@
 {
 	"name": "f-formatter",
-	"version": "0.3.1",
+	"version": "1.0.0-alpha",
 	"description": "The simple fockusty formatter of different data",
 	"main": "index.js",
 	"scripts": {
-		"build": "npm run build:file && npm run start:build",
-		"build:file": "tsc && tsc --declaration",
-		"watch:build": "nodemon build.ts",
-        "start:build": "node ../dist/build.js",
+		"build": "tsc && fockbuilder",
 		"format": "prettier ./**.ts --write",
 		"test": "ts-mocha --paths ./test/**/*.test.ts"
 	},
 	"files": [
-		"colors.js",
-		"colors.d.ts",
-		"date/date.js",
-		"date/date.d.ts",
-		"date/month.js",
-		"date/month.d.ts",
-		"date/time.js",
-		"date/time.d.ts",
-		"types/date.types.d.ts",
-		"types/date.types.d.ts",
-		"formatter.js",
-		"formatter.d.ts",
-		"index.js",
-		"index.d.ts"
+		"./**.js",
+		"./**.d.ts",
+		"./**.js.map",
+		"!./test/**",
+		"package.json",
+		"README.md",
+		"LICENSE"
 	],
 	"keywords": [
 		"formatter",
@@ -49,6 +39,7 @@
 		"@types/expect": "^24.3.0",
 		"@types/mocha": "^10.0.8",
 		"@types/node": "^22.7.4",
+		"fock-builder": "^2.1.0-beta.1",
 		"mocha": "^10.7.3",
 		"nodemon": "^3.1.7",
 		"prettier": "^3.3.3",

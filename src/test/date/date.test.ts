@@ -1,9 +1,9 @@
-import DateFormatter from "date/date";
+import DateFormatter from "../../date/date";
 
-import type { TestsType } from "types/test.types";
-import type { Time as TimeType } from "types/date.types";
+import type { TestsType } from "src/types/test.types";
+import type { Time as TimeType } from "src/types/date.types";
 
-import Test from "test/test.class";
+import Test from "src/test/test.class";
 
 const formatter = new DateFormatter();
 

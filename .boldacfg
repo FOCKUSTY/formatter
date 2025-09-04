@@ -1,0 +1,30 @@
+{
+  "catalogs": [
+  ],
+
+  "ignore_catalogs": [
+    "./**/node_modules/**",
+    "./**/.git",
+    "./**/.obsidian",
+    "./**/.github"
+  ],
+
+  "ignore_files": [
+    "package-lock.json"
+  ],
+
+  "dirs": [],
+  "source_files": [
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
+  "build_files": [
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
+
+  "source": "./",
+  "build": "./dist/"
+}

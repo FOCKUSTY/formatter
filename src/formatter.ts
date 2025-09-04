@@ -1,6 +1,3 @@
-import path from "node:path";
-import fs from "node:fs";
-
 import DateFormatter from "./date/date";
 import { Colors } from "./colors";
 
@@ -133,40 +130,6 @@ class Formatter {
 
 	public Comma = (number: string | number) => {
 		return `${number}`.replace(".", ",");
-	};
-
-	/**
-	 * @requires json
-	 *
-	 * @param json - your readed json file
-	 *
-	 * @returns json file (object | array | null | undefined)
-	 */
-
-	public FromJSON = (json: string): any => {
-		let file;
-		JSON.stringify(json, (_, value) => {
-			eval(`file = ${value}`);
-		});
-		return file;
-	};
-
-	/**
-	 * @requires filePath
-	 *
-	 * @param filePath - your path to json file
-	 *
-	 * @returns json file (object | array | null | undefined)
-	 */
-
-	public FromJSONWithPath = (filePath: string): any => {
-		let file: any;
-		const json = fs.readFileSync(path.join(filePath), { encoding: "utf-8" });
-		JSON.stringify(json, (_, value) => {
-			eval(`file = ${value}`);
-		});
-
-		return file;
 	};
 
 	/**

@@ -1,7 +1,7 @@
 import Formatter from "../index";
 import Test from "./test.class";
 
-import type { TestsType } from "types/test.types";
+import type { TestsType } from "src/types/test.types";
 
 const formatter = new Formatter();
 
