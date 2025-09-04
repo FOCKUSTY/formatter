@@ -6,7 +6,7 @@
 	"scripts": {
 		"build": "tsc && fockbuilder",
 		"format": "prettier ./**.ts --write",
-		"test": "ts-mocha --paths ./test/**/*.test.ts"
+		"test": "ts-mocha --paths ./src/test/**/*.test.ts"
 	},
 	"files": [
 		"./**.js",
